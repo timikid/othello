@@ -2,14 +2,13 @@
 #include <stdlib.h>
 
 #define blank -1
-#define white 0
-#define black 1
+#define white 1 //over_w에서 white와 black에 저장된 값 바꿈  
+#define black 0
 
 #define N 6
 
+int over_b(int a[][N], int i, int j){
 
-int over_w(int a[][N], int i, int j){
-	
         int k;
         int result;
         
@@ -161,10 +160,10 @@ int over_w(int a[][N], int i, int j){
 			  	    break;
 			  	 }
 			  }
+	
 		if(result>=1)	  
 		return 1;
 		
 		else
-		return 0;
-			  
+		return -1;
 }

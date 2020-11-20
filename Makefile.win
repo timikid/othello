@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = obj/basis.o obj/main.o obj/check.o obj/put.o
-LINKOBJ  = obj/basis.o obj/main.o obj/check.o obj/put.o
+OBJ      = obj/basis.o obj/main.o obj/check.o obj/put.o obj/over_b.o obj/flipresult.o
+LINKOBJ  = obj/basis.o obj/main.o obj/check.o obj/put.o obj/over_b.o obj/flipresult.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -35,3 +35,9 @@ obj/check.o: source/check.c
 
 obj/put.o: source/put.c
 	$(CC) -c source/put.c -o obj/put.o $(CFLAGS)
+
+obj/over_b.o: over_b.c
+	$(CC) -c over_b.c -o obj/over_b.o $(CFLAGS)
+
+obj/flipresult.o: flipresult.c
+	$(CC) -c flipresult.c -o obj/flipresult.o $(CFLAGS)
