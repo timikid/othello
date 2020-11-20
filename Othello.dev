@@ -71,7 +71,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
-FileName=put.c
+FileName=source\check.c
 CompileCpp=0
 Folder=
 Compile=1
@@ -81,8 +81,17 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit4]
-FileName=check.c
+FileName=source\put.c
 CompileCpp=0
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit5]
+FileName=이름없음1
 Folder=
 Compile=1
 Link=1

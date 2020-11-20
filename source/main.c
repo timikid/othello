@@ -13,23 +13,30 @@ extern void print_othello(int a[][N]);
 extern void status(int a[][N]);
 extern void put_w(int a[][N]);
 extern void put_b(int a[][N]);
-
+extern void sad(int a[][N]);
 
 int main(int argc, char *argv[]) {
 	
    int coordinate[N][N];
 	
+ 
    init(coordinate);
+  
+  
    print_othello(coordinate);
    status(coordinate); 
    
-   put_w(coordinate);
-  
    
-	
- 	
-			
-	return 0;
+   put_w(coordinate);
+   status(coordinate);
+   print_othello(coordinate);
+   
+   put_b(coordinate);
+   print_othello(coordinate);
+
+   
+   
+ 	return 0;
 }
 
 
