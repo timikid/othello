@@ -7,12 +7,22 @@
 
 #define N 6
 
-int over_b(int a[][N], int i, int j){
 
-        int k;
-        int result;
-        
-		    if(a[i][j-1] == black)   //¼­  
+int over_b(int a[][N]){
+
+    int i,j;
+    
+    int k;
+    int result;
+    
+
+ 
+	for(i=0;i<N;i++){
+    	for(j=0;j<N;j++){
+
+			{
+		
+              if(a[i][j-1] == black)   //¼­  
 			  {
 			  	 for(k=2;k<=j;k++)
 			  	 {
@@ -160,10 +170,19 @@ int over_b(int a[][N], int i, int j){
 			  	    break;
 			  	 }
 			  }
-	
+		    }
+		    
+			if(a[i][j]!=blank)
+			result=0;
+			  
+}
+}
+
 		if(result>=1)	  
 		return 1;
 		
 		else
-		return -1;
+		return 0;
+
+
 }

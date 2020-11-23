@@ -9,7 +9,7 @@
 
 void init(int a[][N])
 {
-//판 초기화하기  
+//모든 배열값에 blank값 넣은 후 (2,2)(3,3)에는 다시 white값, (2,3) (3,2)에는 black값 넣어줌  
 	int i,j;
 	for(i=0;i<N;i++){
 		for(j=0;j<N;j++){
@@ -26,14 +26,15 @@ void init(int a[][N])
 void print_othello(int a[][N])
 {
     int i,j;
-   
-   	printf("   0 1 2 3 4 5");
+    
+    printf("\n");
+   	printf("   0 1 2 3 4 5");  //열 입력  
     printf("\n"); 
 	printf("   - - - - - -");
     printf("\n");
   
    for(i=0;i<N;i++){           
-        printf("%i |", i);
+        printf("%i |", i);    //행 입력  
    	for(j=0;j<N;j++){
    	
    	    if(a[i][j] == blank)
@@ -54,12 +55,12 @@ void print_othello(int a[][N])
 void status(int a[][N])
 {
 	int i,j;
-	int countw=0;
-	int countb=0;
-	
+    int countb = 0;
+	int countw = 0;  
+ 
 	for(i=0;i<N;i++){
 		for(j=0;j<N;j++){
-			if(a[i][j] == white)
+			if(a[i][j] == white)  //배열값이  white값이면 countw변수에 1증가, black값이면 countb변수에 1증가 
 			 countw+=1;
 			else if(a[i][j] == black)
 			 countb+=1;
@@ -70,5 +71,18 @@ void status(int a[][N])
 	printf("\n\n");
 }
 
+
+void init_flip(){
+	// 각 방향 별 뒤집어진 돌의 개수 초기화  
+	extern int e,w,s,n,ne,nw,se,sw;
+	e=0;
+	w=0;
+	s=0;
+	n=0;
+	ne=0;
+	nw=0;
+	se=0;
+	sw=0;
+}
 
 

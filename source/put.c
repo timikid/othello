@@ -7,27 +7,32 @@
 
 #define N 6
 
-static int e,w,s,n,ne,nw,se,sw;
+
+
+extern void init_flip();
+int e,w,s,n,ne,nw,se,sw;
 
 void put_w(int a[][N])
 {
 
 	int i,j;
-	int check;
-	    
-    int k,t;
-    int result = 0;  // result>=1일 경우 배치가능  0일 경우 배치 불가  
+	init_flip();    
+    
+	int k,t;
+    int result =0;  // result>=1일 경우 배치가능  0일 경우 배치 불가  
 
 do{
 	
 	printf("put a new white othello : " );
 	scanf("%i %i", &i, &j);
 
-    if(a[i][j] != blank)
-     result = 0;
-     
-	else if( i<0 || i>5 || j<0 || j>5 )
+         
+	if( i<0 || i>5 || j<0 || j>5 )
 	 result = 0;
+	
+	else if(a[i][j] != blank)
+     result = 0;
+
 	
 	else{
 		    if(a[i][j-1] == black)   //서  
@@ -229,8 +234,7 @@ do{
 void put_b(int a[][N])
 {
 	int i,j;
-	int check;
-	
+	init_flip(); 
 	int k,t; 
     int result = 0;  // result>=1일 경우 배치가능  0일 경우 배치 불가  
     
@@ -238,12 +242,12 @@ do{
 	printf("put a new black othello : " );
 	scanf("%i %i", &i, &j);
 	
-	if(a[i][j] != blank)
-    result = 0;
-    
-    else if( i<0 || i>5 || j<0 || j>5 )
+    if( i<0 || i>5 || j<0 || j>5 )
 	 result = 0;
 	
+	else if(a[i][j] != blank)
+     result = 0;
+    	
 	else{
 		  	if(a[i][j-1] == white)   //서  
 			  {
@@ -436,9 +440,3 @@ do{
 }while(result == 0);
 	
 }
-
-  
-
-	
-
-
