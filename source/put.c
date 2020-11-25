@@ -9,32 +9,32 @@
 
 
 
-extern void init_flip();
+extern void init_flip();  
 int e,w,s,n,ne,nw,se,sw;
 
 
 void put_w(int a[][N])
 {
-    int i,j;
-	init_flip();
+    int i,j;  
+	init_flip();      //뒤집어진 돌의 개수 각 턴마다 초기화  
 	    
     int k,t;
-    int result = 0;  // result>=1일 경우 배치가능  0일 경우 배치 불가 
+    int result = 0;      // result>=1일 경우 배치가능  result=0일 경우 배치 불가 
 
 do{
    
-    printf("put a new white othello : " );
+    printf("put a new white othello : " );     //돌 놓을 좌표 입력받기  
 	scanf("%i %i", &i, &j);	
 	printf("\n");
 	
 	
-    if( i<0 || i>5 || j<0 || j>5 )
-	 {	
+    if( i<0 || i>=N || j<0 || j>=N )       // 돌을 놓을 수 있는 행,열 범위가 0<=i,j<N 이므로 그 외 범위 수는 result 값 0 , 반복조건검사(while)로감  
+     {                                      
 	    printf("invaild input! (should be less than 6)\n\n");
 	    result = 0;
      }
 	
-	else if(a[i][j] != blank)
+	else if(a[i][j] != blank)              //빈칸이 아닌 좌표 입력시 result 값 0,  반복조건검사(while)로감
      {
      	printf("invaild input! (already occupied)\n\n");
 		result = 0;
@@ -42,32 +42,30 @@ do{
 
 	
 	else{
-		    if(a[i][j-1] == black)   //서  
+		    if(a[i][j-1] == black)                   //서    입력한 좌표 이웃한 서쪽에 검은돌(상대돌) 있는 경우  
 			  {
-			  	 for(k=2;k<=j;k++)   // 0<=j-k<N
+			  	 for(k=2;k<=j;k++)                   // 0<=j-k<N
 			  	 {
-				   if(a[i][j-k] == black)
+				   if(a[i][j-k] == black)            // 서쪽으로 k칸옆이 검은돌이면 다음 k값으로  
 				    continue;
 				   
-			  	   else if(a[i][j-k] == white)
-			  	    {
-					    result++;
-        				for(t=1;t<k;t++){
-						a[i][j-t] =white;
-						w = t;
+			  	   else if(a[i][j-k] == white)       // 서쪽으로 k칸 옆이 하얀돌인 경우 (현재 k-1칸 까지는 검은돌)  
+			  	    { 
+					    result++;                    // result 값 증가 (좌표 입력 가능) 
+        				
+						for(t=1;t<k;t++){ 
+						a[i][j-t] =white;            //k전 까지의 검은돌 좌표에 하얀돌 입력 (돌 뒤집기) 
+						w = t;                       //뒤집어진 돌 개수 w 에 저장  
 						}
-			  	        break;
+			  	        break;                       //검은돌을 따라가 하얀돌을 만나면 그 턴의 서쪽방향 탐색은  끝   
 			  	    }
 			  	    
-				   else if(a[i][j-k] == blank)
-			  	    {
-			  	        
-					    break;
-				    }
+				   else if(a[i][j-k] == blank)       //서쪽으로 k칸 옆이 빈칸인 경우( 현재 k-1칸 가지는 검은돌) 
+					    break;                       //뒤집을 수 없으므로 서쪽방향 탐색 중지  
 			  	 }
 			  }
 	  	 
-			if(a[i][j+1] == black)    //동    
+			if(a[i][j+1] == black)    //동   서와 동일     
 			  {
 			  	for(k=2; k<N-j ;k++)     //0<=j+k<N
 			  	 {
@@ -224,16 +222,16 @@ do{
 			  printf("invaild input! (no flips)\n\n");
         }
     
-	if(result>=1)
-	a[i][j] = white;
 	
-}while(result == 0);
+}while(result == 0);      // 좌표가 행,열 범위 밖인 경우, 비어있지 않은경우, 범위안이고 비어있지만 돌을 뒤집을 수 없는 경우 입력받기 반복  
+   
+   a[i][j] = white;       //반복 문 통과시(입력가능좌표 입력받을 때까지 반복) 해당 좌표에 white값 저장  
 }
 
 
 
 
-void put_b(int a[][N])
+void put_b(int a[][N])       //put_w에서  black, white 만 바뀜 
 {
 	int i,j;
 	init_flip();

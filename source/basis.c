@@ -59,9 +59,11 @@ void status(int a[][N])
 	int countw = 0;  
  
 	for(i=0;i<N;i++){
-		for(j=0;j<N;j++){
-			if(a[i][j] == white)  //배열값이  white값이면 countw변수에 1증가, black값이면 countb변수에 1증가 
+		for(j=0;j<N;j++)
+		{
+			if(a[i][j] == white)       //배열값이  white값이면 countw변수에 1증가, black값이면 countb변수에 1증가 
 			 countw+=1;
+			
 			else if(a[i][j] == black)
 			 countb+=1;
 		}

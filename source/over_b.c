@@ -7,8 +7,9 @@
 
 #define N 6
 
-
-int over_b(int a[][N]){
+                                 
+                                 //게임 종료 조건 검토 함수  
+int over_b(int a[][N]){          //put_b(입력가능한 좌표인지 여덟방향으로 탐색) 에서 돌뒤집기,뒤집은 돌 개수 세기 기능만 빠짐  
 
     int i,j;
     
@@ -177,7 +178,7 @@ int over_b(int a[][N]){
 			  
 }
 }
-		if(result>=1)	  
+		if(result>=1)	    // 임의의 방향으로 돌 뒤집기 가능을 나타내는 result값이 1보다 크면 retrun값 1 
 		return 1;
 		
 		else

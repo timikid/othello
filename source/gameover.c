@@ -11,7 +11,7 @@
 
 void game_over(int a[][N]){
     
-	printf("::GAME OVER::\n");
+	printf("\n::GAME OVER::\n");
 		
 		int i,j;
 		int w=0;

@@ -46,6 +46,9 @@ do{
         flip_result_w();              //뒤집어진 돌의 방향 별 개수, 총 개수 출력  
     }
    
+   
+   
+   
     if(over_w(othello)==0 && over_b(othello)==0)   //흰돌 차례 후, 두 돌 다 놓을 수 없으면 do-while문 빠져나가 gameover로  
     break;
     
@@ -62,7 +65,7 @@ do{
     }
     
     
-}while(over_w!=0 || over_b!=0);    // 두 돌 중 한 색이라도 돌 놓기 가능 하면 do-while문(돌 놓기) 반복  
+}while(over_w(othello) !=0 || over_b(othello) !=0);    // 두 돌 중 한 색이라도 돌 놓기 가능 하면 do-while문(돌 놓기) 반복  
     
     print_othello(othello);
     game_over(othello);              //게임 종료, 스코어 출력  
