@@ -13,22 +13,26 @@ int over_b(int a[][N]){
     int i,j;
     
     int k;
-    int result;
+    int result=0;
     
-
  
 	for(i=0;i<N;i++){
     	for(j=0;j<N;j++){
-
-			{
-		
+            
+            
+			if(a[i][j]!=blank)
+			continue;
+			
+			else
+		    {	
               if(a[i][j-1] == black)   //¼­  
 			  {
 			  	 for(k=2;k<=j;k++)
 			  	 {
 				   if(a[i][j-k] == black)
 				    continue;
-				   
+			     
+			       
 			  	   else if(a[i][j-k] == white)
 			  	    {
 					    result++;
@@ -36,10 +40,8 @@ int over_b(int a[][N]){
 			  	    }
 			  	    
 				   else if(a[i][j-k] == blank)
-			  	    {
-			  	        
-					    break;
-				    }
+			  	    break;
+				   
 			  	 }
 			  }
 	  	 
@@ -64,7 +66,7 @@ int over_b(int a[][N]){
 			  
 			if(a[i+1][j] == black)   //³²  
 			  {
-			  	for(k=1;k<(N-i);k++)
+			  	for(k=2;k<(N-i);k++)
 			  	 {
 				   if(a[i+k][j] == black)
 				    continue;
@@ -82,7 +84,7 @@ int over_b(int a[][N]){
 			  
 			if(a[i-1][j] == black)   //ºÏ  
 			  {
-			  	for(k=1;k<=i;k++)
+			  	for(k=2;k<=i;k++)
 			  	 {
 				   if(a[i-k][j] == black)
 				      continue;
@@ -172,12 +174,9 @@ int over_b(int a[][N]){
 			  }
 		    }
 		    
-			if(a[i][j]!=blank)
-			result=0;
 			  
 }
 }
-
 		if(result>=1)	  
 		return 1;
 		

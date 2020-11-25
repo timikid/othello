@@ -71,16 +71,6 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
-FileName=source\check.c
-CompileCpp=0
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit4]
 FileName=source\put.c
 CompileCpp=0
 Folder=
@@ -90,8 +80,18 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
+[Unit4]
+FileName=source\flipresult.c
+CompileCpp=0
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
 [Unit5]
-FileName=over_b.c
+FileName=source\over_b.c
 Folder=
 Compile=1
 Link=1
@@ -101,7 +101,17 @@ BuildCmd=
 CompileCpp=0
 
 [Unit6]
-FileName=flipresult.c
+FileName=..\..\Users\msys\Desktop\othello\source\over_w.c
+CompileCpp=0
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit7]
+FileName=gameover.c
 CompileCpp=0
 Folder=
 Compile=1

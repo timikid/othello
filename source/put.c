@@ -12,26 +12,33 @@
 extern void init_flip();
 int e,w,s,n,ne,nw,se,sw;
 
+
 void put_w(int a[][N])
 {
-
-	int i,j;
-	init_flip();    
-    
-	int k,t;
-    int result =0;  // result>=1일 경우 배치가능  0일 경우 배치 불가  
+    int i,j;
+	init_flip();
+	    
+    int k,t;
+    int result = 0;  // result>=1일 경우 배치가능  0일 경우 배치 불가 
 
 do{
+   
+    printf("put a new white othello : " );
+	scanf("%i %i", &i, &j);	
+	printf("\n");
 	
-	printf("put a new white othello : " );
-	scanf("%i %i", &i, &j);
-
-         
-	if( i<0 || i>5 || j<0 || j>5 )
-	 result = 0;
+	
+    if( i<0 || i>5 || j<0 || j>5 )
+	 {	
+	    printf("invaild input! (should be less than 6)\n\n");
+	    result = 0;
+     }
 	
 	else if(a[i][j] != blank)
-     result = 0;
+     {
+     	printf("invaild input! (already occupied)\n\n");
+		result = 0;
+     }
 
 	
 	else{
@@ -60,7 +67,6 @@ do{
 			  	 }
 			  }
 	  	 
-	  	 
 			if(a[i][j+1] == black)    //동    
 			  {
 			  	for(k=2; k<N-j ;k++)     //0<=j+k<N
@@ -85,7 +91,7 @@ do{
 			  
 			if(a[i+1][j] == black)   //남  
 			  {
-			  	for(k=1;(k<N-i);k++)  // 0<=i+k<N
+			  	for(k=2;(k<N-i);k++)  // 0<=i+k<N
 			  	 {
 				   if(a[i+k][j] == black)
 				    continue;
@@ -107,7 +113,7 @@ do{
 			  
 			if(a[i-1][j] == black)   //북  
 			  {
-			  	for(k=1;k<=i;k++)    // 0<=i-k<N 
+			  	for(k=2;k<=i;k++)    // 0<=i-k<N 
 			  	 {
 				   if(a[i-k][j] == black)
 				      continue;
@@ -127,7 +133,7 @@ do{
 			  	 }
 			  }  
 			  
-				if(a[i+1][j-1] == black)   //남서   
+			if(a[i+1][j-1] == black)   //남서   
 			  {
 			  	for(k=2;(k<N-i && k<=j);k++)      // 0<=i+k<N, 0<=i-k<N
 			  	 {
@@ -149,8 +155,7 @@ do{
 			  	 }
 			  }
 			  
-			  
-			  	if(a[i+1][j+1] == black)   //남동   
+		  	if(a[i+1][j+1] == black)   //남동   
 			  {
 			  	for(k=2;(k<N-i && k<N-j);k++)      // 0<=i+k<N , 0<=i+k<N
 			  	 {
@@ -172,7 +177,7 @@ do{
 			  	 }
 			  }
 
-			  	if(a[i-1][j+1] == black)   //북동   
+		  	if(a[i-1][j+1] == black)   //북동   
 			  {
 			  	for(k=2;( k<=i && k<N-j);k++)      // 0<=i-k<N , 0<=j+k<N
 			  	 {
@@ -194,7 +199,7 @@ do{
 			  	 }
 			  }		
 			  
-			  	if(a[i-1][j-1] == black)   //북서  
+		  	if(a[i-1][j-1] == black)   //북서  
 			  {
 			  	for(k=2;( k<=i && k<=j );k++)      // 0<=i-k<N  , 0<=j-k<N
 			  	 {
@@ -214,19 +219,16 @@ do{
 				   else if(a[i-k][j-k] == blank)
 			  	    break;
 			  	 }
-			  }					  	  
+			  }				  	  
+			  if(result == 0)
+			  printf("invaild input! (no flips)\n\n");
         }
- 
-  if(result>=1)
-	 a[i][j] = white;
- 
-  else
-	 printf("invaild input\n!");
-
+    
+	if(result>=1)
+	a[i][j] = white;
+	
 }while(result == 0);
-	 
 }
-
 
 
 
@@ -234,20 +236,28 @@ do{
 void put_b(int a[][N])
 {
 	int i,j;
-	init_flip(); 
+	init_flip();
+	
 	int k,t; 
     int result = 0;  // result>=1일 경우 배치가능  0일 경우 배치 불가  
     
 do{	
 	printf("put a new black othello : " );
 	scanf("%i %i", &i, &j);
+	printf("\n");
 	
     if( i<0 || i>5 || j<0 || j>5 )
+	 {
+	 printf("invaild input! (should be less than 6)\n\n");	
 	 result = 0;
+     }
 	
 	else if(a[i][j] != blank)
-     result = 0;
-    	
+     {
+	 printf("invaild input! (should be less than 6)\n\n");
+	 result = 0;
+     }
+	
 	else{
 		  	if(a[i][j-1] == white)   //서  
 			  {
@@ -427,16 +437,15 @@ do{
 				   else if(a[i-k][j-k] == blank)
 			  	    break;
 			  	 }
-			  }					  	  
+			  }	
+			  
+			  if(result == 0)
+			  printf("invaild input! (no flips)\n\n");				  	  
         
 		}		
-         
-    if(result>=1)
-	a[i][j] = black;
-  
-    else
-	printf("invaild input!\n");
 
 }while(result == 0);
-	
+
+	a[i][j] = black;
 }
+
