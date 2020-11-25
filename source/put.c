@@ -252,7 +252,7 @@ do{
 	
 	else if(a[i][j] != blank)
      {
-	 printf("invaild input! (should be less than 6)\n\n");
+	 printf("invaild input! (already occupied)\n\n");
 	 result = 0;
      }
 	
