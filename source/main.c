@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Othello.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 #define blank -1
@@ -8,21 +9,7 @@
 
 #define N 6
 
-extern void init(int a[][N]);
-extern void print_othello(int a[][N]);
-extern void status(int a[][N]);
 
-extern int put_w(int a[][N]);
-extern int put_b(int a[][N]);
-
-extern int over_w(int a[][N]);
-extern int over_b(int a[][N]);
-
-extern void flip_result_w();
-extern void flip_result_b();
-extern void init_flip();
-
-extern void game_over(int a[][N]);
 
 int othello[N][N];
 
