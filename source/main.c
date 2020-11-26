@@ -5,7 +5,7 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 #define blank -1
 #define white 0
-#define black 1   // 빈칸, 검은알, 하얀알에 해당하는 정수 지정 
+#define black 1   // 빈칸, 검은알, 하얀알에 정수 지정 
 
 #define N 6
 
@@ -29,7 +29,7 @@ do{
     {
         print_othello(othello);  
 	    status(othello);              //판,현재 검은돌 하얀돌 개수 출력  
-	    put_w(othello);               //하얀돌 놓을 좌표 입력받음-놓기 가능한 좌표 입력 받을 때까지 반복-놓기 가능하면 반복문 통과 후 좌표에 하얀돌 입력  
+	    put_w(othello);               //하얀돌 놓을 좌표 입력받음- 가능한 좌표 입력 받을 때까지 반복-놓기 가능하면 반복문 통과 후 좌표에 하얀돌 입력  
         flip_result_w();              //뒤집어진 돌의 방향 별 개수, 총 개수 출력  
     }
    
